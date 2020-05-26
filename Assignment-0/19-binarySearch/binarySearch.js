@@ -5,21 +5,21 @@ class MySolution {
 
   binarySearch(nums, target) {
     // Insert code here;
-    let start = 0;
-    let end = nums.length - 1;     
-    while (start <= end) 
-    { 
-      let mid = Math.floor((start + end) / 2); 
-    
-      if (nums[mid] === target) 
-        return true; 
-      else if (nums[mid] < target)  
-        start = mid + 1; 
-      else
-        end = mid - 1; 
-    } 
-        
-    return false; 
+    let mid = Math.floor(nums.length / 2);
+    let arr = nums;
+
+    if (nums[mid] > target) {
+      let arr = nums.slice(0, mid);
+      return this.binarySearch(arr, target);
+    }
+    else if (nums[mid] < target) {
+      let arr = nums.slice(mid + 1, nums.length);
+      return this.binarySearch(arr, target);
+    }
+    else if (nums[mid] == target)
+      return true;
+    else
+      return false;
   }
 }
 
