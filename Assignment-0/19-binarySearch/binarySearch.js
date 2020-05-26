@@ -6,7 +6,6 @@ class MySolution {
   binarySearch(nums, target) {
     // Insert code here;
     let mid = Math.floor(nums.length / 2);
-    let arr = nums;
 
     if (nums[mid] > target) {
       let arr = nums.slice(0, mid);
